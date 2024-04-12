@@ -1,17 +1,21 @@
 package com.example.standard_3week.presentation
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.standard_3week.R
 import com.example.standard_3week.databinding.ActivityMainBinding
+import com.example.standard_3week.model.FlowerViewModel
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
+    private val flowerViewModel: FlowerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +42,9 @@ class MainActivity : AppCompatActivity() {
         // tab의 포지션 값을 이용해서 Fragment를 구분할 수 있었다!! -> 하지만, 명시적이진 않음
         // TabItem에 id 값이 들어간다면 명시적으로 체크할 수 있지만 id값을 넣으면 오류가 발생한다,,(원래 그렇다고 함)
         when (this@connectFragment.position) {
-             0 -> setFragment(HomeFragment.getInstance())
-             1 -> setFragment(DashBoardFragment.getInstance())
-             2 -> setFragment(NotificationFragment.getInstance())
+            0 -> setFragment(HomeFragment.getInstance())
+            1 -> setFragment(DashBoardFragment.getInstance())
+            2 -> setFragment(NotificationFragment.getInstance())
         }
     }
 

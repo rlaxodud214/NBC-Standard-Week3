@@ -6,14 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.example.standard_3week.data.DataSource
 import com.example.standard_3week.data.Flower
 import com.example.standard_3week.databinding.FragmentDashboardBinding
+import com.example.standard_3week.model.FlowerViewModel
 
 private const val KEY = "flowerData"
 
 class DashBoardFragment : Fragment() {
     private val binding: FragmentDashboardBinding by lazy {
         FragmentDashboardBinding.inflate(layoutInflater)
+    }
+
+    private val flowerViewModel: FlowerViewModel by activityViewModels()
+
+    // 0. 데이터 준비
+    private val data: List<Flower> by lazy {
+        DataSource.getDataSource().getFlowerList()
     }
 
     private lateinit var receivedData: Flower
@@ -41,7 +51,25 @@ class DashBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvText1.text = "이름: ${receivedData.name} \n설명: ${receivedData.description}"
+
+
+        with(binding) {
+            tvText1.text = "이름: ${receivedData.name} \n설명: ${receivedData.description}"
+
+            flowerViewModel.description.observe(viewLifecycleOwner) {
+                tvDescription.text = it
+            }
+
+            val randomNumber = (0..3).random()
+            flowerViewModel.setFlowers(
+                data.drop(randomNumber)
+            )
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        flowerViewModel.setDescription("This is Dashboard Fragment")
     }
 
     companion object {

@@ -11,5 +11,5 @@ data class Flower(
 
     @DrawableRes
     val image: Int,
-    val description: String
-): Parcelable
+    val description: String,
+) : Parcelable

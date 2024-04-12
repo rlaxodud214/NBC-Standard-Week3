@@ -23,11 +23,23 @@
         android:id="@+id/tv_Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is Dashboard Fragment"
         android:textSize="20sp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_get_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="대충 데이터 받아오는 로직 Run"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Description" />
 </androidx.constraintlayout.widget.ConstraintLayout>
