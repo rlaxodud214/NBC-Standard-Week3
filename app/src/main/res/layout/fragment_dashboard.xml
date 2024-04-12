@@ -31,15 +31,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_get_data"
+        android:id="@+id/btn_set_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="대충 데이터 받아오는 로직 Run"
+        android:text="viewModel의 Data 설정"
         android:textSize="20sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Description" />
+
+    <Button
+        android:id="@+id/btn_init_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="viewModel의 Data 초기화"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_set_data"
+        tools:layout_editor_absoluteX="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,10 +60,14 @@ class DashBoardFragment : Fragment() {
                 tvDescription.text = it
             }
 
-            val randomNumber = (0..3).random()
-            flowerViewModel.setFlowers(
-                data.drop(randomNumber)
-            )
+            btnSetData.setOnClickListener {
+                flowerViewModel.setFlowers(data)
+            }
+
+            btnInitData.setOnClickListener {
+                val emptyData = listOf<Flower>()
+                flowerViewModel.setFlowers(emptyData)
+            }
         }
     }
 
